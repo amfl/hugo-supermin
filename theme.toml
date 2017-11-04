@@ -3,19 +3,13 @@
 
 name = "Supermin"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
-description = ""
-homepage = "http://siteforthistheme.com/"
-tags = ["", ""]
-features = ["", ""]
+licenselink = "https://github.com/amfl/hugo-supermin/blob/master/LICENSE.md"
+description = "Super minimalist"
+homepage = "https://github.com/amfl/hugo-supermin"
+tags = ["minimal"]
+features = []
 min_version = 0.15
 
 [author]
-  name = ""
-  homepage = ""
-
-# If porting an existing theme
-[original]
-  name = ""
-  homepage = ""
-  repo = ""
+  name = "amfl"
+  homepage = "https://github.com/amfl/"
