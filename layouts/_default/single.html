@@ -1,25 +1,26 @@
 {{ partial "header.html" . }}
 {{ partial "navbar.html" . }}
+{{- $baseurl := .Site.BaseURL }}
 <article class="post">
 
     <header>
         <p class="footnote">
             <time>{{ .Date.Format "2006-01-02" }}</time>
-        {{ $baseurl := .Site.BaseURL }}
-            {{ if or .Params.tags .Params.categories .Params.series }}
-            |
-            {{ end }}
-            {{ if isset .Params "tags" }}
+            {{- if or .Params.tags .Params.categories .Params.series }}
+            |  <!-- Print a separator -->
+            {{- end }}
+
+            {{- if isset .Params "tags" }}
             tags: {{ range .Params.tags }}<a href="{{ $baseurl }}tags/{{ . | urlize }}">{{ . }}</a> {{ end }}
-            {{ end }}
+            {{- end }}
 
-            {{ if isset .Params "categories" }}
-            categories:{{ range .Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }}
-            {{ end }}
+            {{- if isset .Params "categories" }}
+            categories: {{ range .Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }}
+            {{- end }}
 
-            {{ if isset .Params "series" }}
-            series:{{ range .Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }}
-            {{ end }}
+            {{- if isset .Params "series" }}
+            series: {{ range .Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }}
+            {{- end }}
         </p>
         <p><a href="{{ $baseurl }}md/{{ .File.LogicalName | urlize }}">raw</a></p>
 
@@ -28,7 +29,6 @@
         <div id="toc">
             {{ .TableOfContents }}
         </div>
-
     </header>
 
     <section class="content">
